@@ -27,21 +27,33 @@ def status_nave():
     print(f"* Temos {combustivel} de combustível")
     print(f"* Os tripulantes são {tripulantes}")
 
+# Registrando novo tripulante
 def registrarTripulante():
     novoTripulante = input("Inserir novo tripulante : ")
     tripulantes.append(novoTripulante)
     print("Tripulante inserido com sucesso!🚀")
 
 
+##Criando uma função que tira o ultimo tripulante
+def tirandotripulante():
+    global tripulantes
+    if len(tripulantes) == 0:
+        print("Lista vazia, adicione um tripulante!")
+        registrarTripulante()
+    else:
+        print(f"Os tripulantes são: {tripulantes}")
+    tripulantes.pop()
+
+
 ## Criando um menu
 
 while True: ## esse loop roda para sempre
     print("\nBem Vindo ao menu interativo da nave. Por favor selecione uma opção:")
-    print("\n1 - Mostrar status da nave | 2 - viajar | 3 - Abastecer | 4 - Novo Tripulante | 5 - Sair")
+    print("\n1 - Mostrar status da nave | 2 - viajar | 3 - Abastecer | 4 - Novo Tripulante | 5 - Remover Tripulante | 6 - Sair")
     opcao = input("Escolha:")
 
 
-
+## chamando funções
     if (opcao == "1"):
         status_nave()
     elif (opcao == "2"):
@@ -51,15 +63,7 @@ while True: ## esse loop roda para sempre
     elif (opcao == "4"):
         registrarTripulante()
     elif (opcao == "5"):
+        tirandotripulante()
+    elif (opcao == "6"):
         print("Viagem encerrada")
         break
-
-    
-
-
-
-status_nave()
-registrarTripulante()
-registrarTripulante()
-registrarTripulante()
-status_nave()
