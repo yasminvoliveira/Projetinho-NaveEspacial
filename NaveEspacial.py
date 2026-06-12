@@ -7,8 +7,11 @@ tripulantes = []
 def viajar():  ### Viajar irá gastar o combústivel
 
     global combustivel  ### Avisa a função que vamos modificar uma variável externa
+    if len(tripulantes) == 0:
+        print("Não há tripulantes na na nave, adicione um tripulante!")
+        print("Para adicionar um tripulante selecione 4")
 
-    if(combustivel>=30):
+    elif combustivel>=30:
         combustivel = combustivel - 30
         print("* A nave está pronta para a viagem")
 
